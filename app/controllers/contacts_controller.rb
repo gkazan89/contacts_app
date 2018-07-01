@@ -29,4 +29,14 @@ class ContactsController < ApplicationController
     @contact.save
     render "contact.json.jbuilder"
   end
+
+  def update
+    @contact = Contact.find_by(id: params[:id])
+    @contact.first_name = params[:first_name] || @contact.first_name
+    @contact.last_name = params[:last_name] || @contact.last_name
+    @contact.number = params[:number] || @contact.number
+    @contact.email = params[:email] || @contact.email
+    @contact.save
+    render "contact.json.jbuilder"
+  end
 end
