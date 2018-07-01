@@ -18,4 +18,15 @@ class ContactsController < ApplicationController
     @contact = Contact.find_by(id: params[:id])
     render "contact.json.jbuilder"
   end  
+
+  def create
+    @contact = Contact.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      number: params[:number],
+      email: params[:email],
+    )
+    @contact.save
+    render "contact.json.jbuilder"
+  end
 end

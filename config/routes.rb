@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "/all_contacts_url" => "contacts#all_contacts_method"
   get "/contacts" => "contacts#index"
   get "/contacts/:id" => "contacts#show"
+  post "/contacts" => "contacts#create"
 end
