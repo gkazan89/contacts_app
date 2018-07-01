@@ -13,4 +13,9 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     render "all_contacts.json.jbuilder"
   end
+
+  def show
+    @contact = Contact.find_by(id: params[:id])
+    render "contact.json.jbuilder"
+  end  
 end
