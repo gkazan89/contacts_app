@@ -22,6 +22,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(
       first_name: params[:first_name],
+      middle_name: params[:middle_name],
       last_name: params[:last_name],
       number: params[:number],
       email: params[:email],
@@ -33,6 +34,7 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find_by(id: params[:id])
     @contact.first_name = params[:first_name] || @contact.first_name
+    @contact.middle_name = params[:middle_name] || @contact.middle_name
     @contact.last_name = params[:last_name] || @contact.last_name
     @contact.number = params[:number] || @contact.number
     @contact.email = params[:email] || @contact.email
