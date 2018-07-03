@@ -18,8 +18,11 @@ class ContactsController < ApplicationController
       email: params[:email],
       bio: params[:bio],
     )
-    @contact.save
-    render "contact.json.jbuilder"
+    if @contact.save
+      render "contact.json.jbuilder"
+    else
+      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -30,8 +33,11 @@ class ContactsController < ApplicationController
     @contact.number = params[:number] || @contact.number
     @contact.email = params[:email] || @contact.email
     @contact.bio = params[:bio] || @contact.bio
-    @contact.save
-    render "contact.json.jbuilder"
+    if @contact.save
+      render "contact.json.jbuilder"
+    else
+      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
