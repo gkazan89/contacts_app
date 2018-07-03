@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
       last_name: params[:last_name],
       number: params[:number],
       email: params[:email],
+      bio: params[:bio],
     )
     @contact.save
     render "contact.json.jbuilder"
@@ -38,6 +39,7 @@ class ContactsController < ApplicationController
     @contact.last_name = params[:last_name] || @contact.last_name
     @contact.number = params[:number] || @contact.number
     @contact.email = params[:email] || @contact.email
+    @contact.bio = params[:bio] || @contact.bio
     @contact.save
     render "contact.json.jbuilder"
   end
