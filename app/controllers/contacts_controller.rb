@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
     if @contact.save
       render "contact.json.jbuilder"
     else
-      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @contact.errors.full_messages}, status: unprocessable_entity
     end
   end
 
