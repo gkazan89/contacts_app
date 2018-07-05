@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     search_terms = params[:search]
     if search_terms
-      @contacts = @contacts.where("first_name ILIKE ?", "%" + search_terms + "%")
+      @contacts = @contacts.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?", "%" + search_terms + "%", "%" + search_terms + "%", "%" + search_terms + "%")    
     end
     render "all_contacts.json.jbuilder"
   end
