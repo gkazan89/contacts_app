@@ -21,6 +21,7 @@ class ContactsController < ApplicationController
       number: params[:number],
       email: params[:email],
       bio: params[:bio],
+      user_id: current_user.id
     )
     if @contact.save
       render "contact.json.jbuilder"
